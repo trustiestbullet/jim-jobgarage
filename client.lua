@@ -237,7 +237,9 @@ RegisterNetEvent("jim-jobgarage:client:SpawnList", function(data)
 				data.list.trunkItems
 			)
 		end
-		if Config.General.Fuel ~= nil and Config.General.Fuel ~= "" and isStarted(Config.General.Fuel) then
+		if Config.General.Fuel == "ox_fuel" then
+			Entity(veh).state.fuel = 100.0
+		elseif Config.General.Fuel ~= nil and Config.General.Fuel ~= "" and isStarted(Config.General.Fuel) then
 			exports[Config.General.Fuel]:SetFuel(veh, 100.0)
 		else
 			SetVehicleFuelLevel(veh, 90.0)
